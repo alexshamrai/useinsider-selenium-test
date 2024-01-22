@@ -1,25 +1,28 @@
 package com.useinsider;
 
-import lombok.RequiredArgsConstructor;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-@RequiredArgsConstructor
 public class MenuBar {
+
+    private static final By COMPANY_MENU_ITEM = By.linkText("Company");
+    private static final By CAREERS_MENU_SUB_ITEM = By.linkText("Careers");
 
     private final WebDriver driver;
 
-    public MenuBar selectCompany() {
-        // Select “Company” menu in navigation bar,
-        WebElement companyMenu = driver.findElement(By.linkText("Company"));
-        companyMenu.click();
+    public MenuBar(WebDriver driver) {
+        this.driver = driver;
+    }
 
+    public MenuBar selectCompany() {
+        var companyMenu = driver.findElement(COMPANY_MENU_ITEM);
+        companyMenu.click();
         return new MenuBar(driver);
     }
 
     public MenuBar selectCareers() {
-        WebElement careersLink = driver.findElement(By.linkText("Careers"));
+        var careersLink = driver.findElement(CAREERS_MENU_SUB_ITEM);
         careersLink.click();
         return new MenuBar(driver);
     }

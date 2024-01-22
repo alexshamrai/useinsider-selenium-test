@@ -11,6 +11,7 @@ public class UseInsiderTest extends BaseTest {
 
         var mainPage = new MainPage(driver);
         mainPage.open()
+                .isLoaded()
                 .acceptAllCookies();
         //TODO Assert home page is opened
 
