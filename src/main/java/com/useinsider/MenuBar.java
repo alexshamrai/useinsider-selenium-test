@@ -1,5 +1,6 @@
 package com.useinsider;
 
+import com.useinsider.pages.CareersPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -21,9 +22,9 @@ public class MenuBar {
         return new MenuBar(driver);
     }
 
-    public MenuBar selectCareers() {
+    public CareersPage selectCareers() {
         var careersLink = driver.findElement(CAREERS_MENU_SUB_ITEM);
         careersLink.click();
-        return new MenuBar(driver);
+        return new CareersPage(driver);
     }
 }

@@ -4,6 +4,8 @@ import com.useinsider.pages.MainPage;
 import com.useinsider.pages.QualityAssurancePage;
 import org.junit.jupiter.api.Test;
 
+import java.util.Set;
+
 public class UseInsiderTest extends BaseTest {
 
     @Test
@@ -13,12 +15,17 @@ public class UseInsiderTest extends BaseTest {
         mainPage.open()
                 .isLoaded()
                 .acceptAllCookies();
-        //TODO Assert home page is opened
+        mainPage.assertThat()
+                .hasCorrectInfo();
 
         var menuBar = new MenuBar(driver);
-        menuBar.selectCompany()
+        var careersPage = menuBar.selectCompany()
                 .selectCareers();
-        //TODO  check Career page, its Locations, Teams and Life at Insider blocks are opened or not
+        careersPage.assertThat()
+                .hasCorectUrl()
+                .hasCorrectLocations()
+                .teamsBlockIsOpen()
+                .lifeAtInsiderBlockIsOpen();
 
         var qualityAssurancePage = new QualityAssurancePage(driver);
         qualityAssurancePage.open()
@@ -26,14 +33,17 @@ public class UseInsiderTest extends BaseTest {
                 .isLoaded()
                 .filterJobsByIstanbulLocation()
                 .filterByQualityAssuranceDepartment()
-                .scrollToTheSearchResults();
-
-        // TODO check presence of jobs list. Assertion: Check that all jobs’ Position contains “Quality Assurance”, Department contains “Quality Assurance”, Location contains “Istanbul, Turkey”
+                .scrollToTheSearchResults()
+                .waitForPositionsInfoIsUpdated();
+        qualityAssurancePage.assertThat()
+                .allJobsPositionContains(Set.of("Quality Assurance", "QA", "Tester"))
+                .departmentContains("Quality Assurance")
+                .locationContains("Istanbul, Turkey");
 
         qualityAssurancePage
-                .clickViewRoleButton();
-        //TODO check that action redirects us to Lever Application form page
-
+                .clickViewRoleButton()
+                .assertThat()
+                .viewRoleRedirectedToLeverApplicationForm();
     }
 
 }
