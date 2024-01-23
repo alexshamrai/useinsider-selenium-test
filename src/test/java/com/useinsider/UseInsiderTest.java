@@ -9,11 +9,10 @@ import java.util.Set;
 public class UseInsiderTest extends BaseTest {
 
     @Test
-    void testCareerIstanbulQaScenario() {
+    void testCareerPageWithQualityAssuranceFiltering() {
         var mainPage = new MainPage(driver);
         var menuBar = new MenuBar(driver);
         var qualityAssurancePage = new QualityAssurancePage(driver);
-
 
         mainPage.open()
                 .isLoaded()
@@ -46,5 +45,4 @@ public class UseInsiderTest extends BaseTest {
                 .assertThat()
                 .viewRoleRedirectedToLeverApplicationForm();
     }
-
 }
