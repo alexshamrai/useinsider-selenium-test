@@ -13,11 +13,11 @@ public class CareersPageAsserts {
 
     private static final String CAREERS_PAGE_URL = "https://useinsider.com/careers/";
     private static final Set<String> EXPECTED_LOCATIONS = Set.of("New York\nUS", "Sao Paulo\nBrazil", "London\nUnited Kingdom");
-    public static final int EXPECTED_LOCATIONS_AMOUNT = 28;
-    public static final By LOCATIONS_SECTION = By.id("career-our-location");
-    public static final By TEAMS_SECTION = By.id("career-find-our-calling");
-    public static final By LIFE_AT_INSIDER_SECTION = By.xpath("//section[.//h2[text()='Life at Insider']]");
-    public static final By LOCATION_INFO = By.cssSelector(".location-info");
+    private static final int EXPECTED_LOCATIONS_AMOUNT = 28;
+    private static final By LOCATIONS_SECTION = By.id("career-our-location");
+    private static final By TEAMS_SECTION = By.id("career-find-our-calling");
+    private static final By LIFE_AT_INSIDER_SECTION = By.xpath("//section[.//h2[text()='Life at Insider']]");
+    private static final By LOCATION_INFO = By.cssSelector(".location-info");
 
     private final WebDriver driver;
 

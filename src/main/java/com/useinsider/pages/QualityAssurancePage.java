@@ -83,7 +83,7 @@ public class QualityAssurancePage extends BasePage {
     }
 
     public void waitForPositionsInfoIsUpdated() {
-        // TODO Investigate why "data-animated" is not stable
+        // TODO Investigate why "data-animated" is not stable and get rid of Thread.sleep
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {

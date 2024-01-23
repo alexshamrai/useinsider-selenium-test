@@ -14,7 +14,7 @@ public class QualityAssuransePageAsserts {
     private static final By POSITION = By.cssSelector(".position-title");
     private static final By DEPARTMENT = By.cssSelector(".position-department");
     private static final By LOCATION = By.cssSelector(".position-location");
-    public static final String LEVER_APPLICATION_FORM_URL = "https://jobs.lever.co";
+    private static final String LEVER_APPLICATION_FORM_URL = "https://jobs.lever.co";
 
     private final WebDriver driver;
 
