@@ -10,15 +10,17 @@ public class UseInsiderTest extends BaseTest {
 
     @Test
     void testCareerIstanbulQaScenario() {
-
         var mainPage = new MainPage(driver);
+        var menuBar = new MenuBar(driver);
+        var qualityAssurancePage = new QualityAssurancePage(driver);
+
+
         mainPage.open()
                 .isLoaded()
                 .acceptAllCookies();
         mainPage.assertThat()
                 .hasCorrectInfo();
 
-        var menuBar = new MenuBar(driver);
         var careersPage = menuBar.selectCompany()
                 .selectCareers();
         careersPage.assertThat()
@@ -27,7 +29,6 @@ public class UseInsiderTest extends BaseTest {
                 .teamsBlockIsOpen()
                 .lifeAtInsiderBlockIsOpen();
 
-        var qualityAssurancePage = new QualityAssurancePage(driver);
         qualityAssurancePage.open()
                 .clickOnSeeAllQaJobsButton()
                 .isLoaded()
